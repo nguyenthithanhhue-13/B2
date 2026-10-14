@@ -39,17 +39,28 @@ Model của bài 2 được **train trong giờ thi** trên dữ liệu đề (c
 
 Mô hình học sẵn (CLIP, DINOv2, e5…) là mô hình công khai trên Hugging Face, notebook B0 tải về.
 
-## Các file
+## Các file — là gì, dùng khi nào
 
-| file | dùng |
-|---|---|
-| `notebooks/CHAY_TU_DONG.ipynb` | **cách chính**, chạy cả bài một lần |
-| `notebooks/B0_cai_dat.ipynb` | cài đặt, chạy đầu tiên |
-| `notebooks/B1` … `B6` | từng bước của CHAY_TU_DONG tách riêng, để chỉnh tay khi cần |
-| `notebooks/B5_hoi_dap_anh.ipynb` | đề bắt viết chữ từ ảnh (VQA, mô tả ảnh) |
-| `notebooks/b2lib.py` | thư viện chung (mọi notebook gọi) |
-| `bai2.py` | hỏi đáp trong Terminal cho dạng bảng, văn bản, âm thanh, video, **dịch** |
-| `yolo_mau.py`, `ocr_mau.py` | khoanh vật thể, đọc chữ trong ảnh (Terminal) |
-| `*.bat` | chỉ dùng trên laptop Windows, không dùng trên Jupyter |
+| file / thư mục | là gì | dùng khi nào |
+|---|---|---|
+| **`notebooks/CHAY_TU_DONG.ipynb`** | chạy cả bài 2 một lần | **cách chính**, Phần 5 |
+| **`notebooks/B0_cai_dat.ipynb`** | cài thư viện, tải mô hình | **luôn chạy đầu tiên**, Phần 2 |
+| `notebooks/B1` … `B6` | từng bước của CHAY_TU_DONG tách riêng | khi cần chỉnh tay một bước, Phần 6b |
+| `notebooks/B5_hoi_dap_anh.ipynb` | hỏi đáp về ảnh, mô tả ảnh (Qwen2.5-VL) | đề bắt **viết chữ từ ảnh** |
+| `notebooks/b2lib.py` | thư viện chung, mọi notebook gọi | không mở, trừ khi AI của BTC bảo sửa một hàm |
+| **`HUONG_DAN_BAI2.docx`** | hướng dẫn này | đọc khi làm |
+| `README.md` | trang giới thiệu trên GitHub | cho các bạn xem |
+| `bai2.py` | chương trình hỏi đáp trong Terminal: bảng số, văn bản, ảnh, âm thanh, chia nhóm, **video**, **dịch** | đề **dịch** hoặc **video**: Terminal `cd ~/B2 && python bai2.py` |
+| `SO_TAY_BAI2.md` | sổ tay của `bai2.py` (câu hỏi máy hỏi, cách trả lời) | khi dùng `bai2.py` |
+| `yolo_mau.py` | khoanh / đếm vật thể, tô vùng ảnh (YOLO11) | đề **khoanh vật thể**: Terminal `cd ~/B2 && python yolo_mau.py` |
+| `mo_hinh/` | trọng số YOLO11 (`yolo11n.pt`, `yolo11n-seg.pt`) | `yolo_mau.py` tự dùng, không cần mở |
+| `ocr_mau.py` | đọc chữ trong ảnh (EasyOCR) | đề **đọc chữ trong ảnh**: Terminal `cd ~/B2 && python ocr_mau.py` |
+| `tai_mo_hinh_cv.py` | tải mô hình cho `yolo_mau.py`, `ocr_mau.py`, `bai2.py` | chỉ khi các file đó báo thiếu mô hình: `cd ~/B2 && python tai_mo_hinh_cv.py --nhanh` |
+| `requirements.txt` | danh sách thư viện + phiên bản | không cần (B0 đã cài) |
+| `CHAY_BAI2.bat`, `CHAY_LAI_BAI2.bat` | bấm đúp chạy `bai2.py` trên **laptop Windows** | **không dùng trên Jupyter** |
+| `CHAY_YOLO.bat`, `CHAY_LAI_YOLO.bat`, `CHAY_OCR.bat` | bấm đúp chạy YOLO / OCR trên laptop Windows | **không dùng trên Jupyter** |
+| `CAI_DAT_MAY_KHAC.bat` | cài mọi thứ lên một laptop Windows khác | **không dùng trên Jupyter** |
+
+Ghi chú: đường dẫn `~/B2` là khi `git clone` repo này. Upload `bai2.zip` thì thay bằng `~/B1/KIT_BAI2`.
 
 Đã chạy thử trên CPU với dữ liệu tự tạo (đoán nhãn và đoán số). Chưa chạy thử trên GPU thật và phần B5.
