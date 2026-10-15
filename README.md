@@ -4,6 +4,8 @@ Bộ làm bài 2 chạy trên **Jupyter có GPU của BTC**. Đề chưa công b
 
 **Hướng dẫn từng bước:** tải file [`HUONG_DAN_BAI2.docx`](HUONG_DAN_BAI2.docx) (bấm vào → nút Download ⬇).
 
+**Chọn mô hình nào, sửa dòng nào (CLIP, SigLIP, DINOv2, e5, PhoBERT…):** [`HUONG_DAN_MO_HINH.docx`](HUONG_DAN_MO_HINH.docx).
+
 ---
 
 ## Chạy nhanh
@@ -48,7 +50,8 @@ Mô hình học sẵn (CLIP, DINOv2, e5…) là mô hình công khai trên Huggi
 | `notebooks/B1` … `B6` | từng bước của CHAY_TU_DONG tách riêng | khi cần chỉnh tay một bước, Phần 6b |
 | `notebooks/B5_hoi_dap_anh.ipynb` | hỏi đáp về ảnh, mô tả ảnh (Qwen2.5-VL) | đề bắt **viết chữ từ ảnh** |
 | `notebooks/b2lib.py` | thư viện chung, mọi notebook gọi | không mở, trừ khi AI của BTC bảo sửa một hàm |
-| **`HUONG_DAN_BAI2.docx`** | hướng dẫn này | đọc khi làm |
+| **`HUONG_DAN_BAI2.docx`** | hướng dẫn làm bài theo thứ tự | đọc khi làm |
+| **`HUONG_DAN_MO_HINH.docx`** | chọn mô hình nào, sửa dòng nào | khi muốn đổi mô hình / tăng điểm |
 | `README.md` | trang giới thiệu trên GitHub | cho các bạn xem |
 | `bai2.py` | chương trình hỏi đáp trong Terminal: bảng số, văn bản, ảnh, âm thanh, chia nhóm, **video**, **dịch** | đề **dịch** hoặc **video**: Terminal `cd ~/B2 && python bai2.py` |
 | `SO_TAY_BAI2.md` | sổ tay của `bai2.py` (câu hỏi máy hỏi, cách trả lời) | khi dùng `bai2.py` |

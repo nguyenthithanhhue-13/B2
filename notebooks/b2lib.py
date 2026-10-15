@@ -459,7 +459,7 @@ def tinh_chinh(train_df, test_df, anh="clip", chu="e5", epochs=5, lr=3e-5, lr_da
             print(f"dừng: hết {phut} phút")
             break
     net.load_state_dict(best_state)
-    save = WORK / f"tinh_chinh_{anh}_{chu}.pt"
+    save = WORK / f"tinh_chinh_{anh}_{chu}.pt".replace("/", "-")
     torch.save({"state": best_state, "classes": None if reg else classes.tolist(), "anh": anh, "chu": chu}, save)
     tp = predict(test_df, np.arange(len(test_df)))
     print(f"TỐT NHẤT: {'-RMSE' if reg else 'accuracy'} phần giữ lại = {best:.4f}. Đã lưu {save}")
@@ -494,6 +494,7 @@ def vlm_tra_loi(paths, cau_hoi, model=VLM, max_new_tokens=64, batch=8, he_thong=
 # ======================= ghép và nộp =======================
 def luu_xac_suat(ten, ids, proba, classes):
     """Lưu xác suất test của một cách làm, để B6 ghép."""
+    ten = str(ten).replace("/", "-")
     p = WORK / f"xs_{ten}.csv"
     d = pd.DataFrame(np.asarray(proba), columns=[str(c) for c in classes])
     d.insert(0, "id", list(ids))
@@ -707,7 +708,7 @@ def tu_dong(train, test, mau="", thu_muc_anh="", cot=None, chi_so=None, anh=("cl
     trd = df[itr].reset_index(drop=True)[giu].reset_index(drop=True)
     ted = df[ite].reset_index(drop=True)
     for (a, ch) in tinh_chinh_cfg:
-        ten = f"tinh_chinh_{a}_{ch}"
+        ten = f"tinh_chinh_{a}_{ch}".replace("/", "-")
         print(f"{clock()} TINH CHỈNH ảnh={a} chữ={ch} (tối đa {phut} phút)")
         try:
             sc, tp, cl, _ = tinh_chinh(trd, ted, anh=a, chu=ch, epochs=epochs, batch=batch, phut=phut, task=task)
